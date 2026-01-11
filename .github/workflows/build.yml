@@ -35,7 +35,9 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/keomabrun/dodoc:${{needs.meta.outputs.dodoc-version}}
+          tags: |
+            ghcr.io/keomabrun/dodoc:${{needs.meta.outputs.dodoc-version}}
+            ghcr.io/keomabrun/dodoc:latest
 
   electron:
     runs-on: ${{ matrix.os }}
@@ -61,25 +63,5 @@ jobs:
           cd electron
           npm install
           npm run dist
-      - name: List files
-        run: |
-          pwd
-          ls -l .
-          ls -l electron
-          ls -l electron/dist
       - name: List Env
         run: env
-      - name: (Windows) Upload artifacts
-        uses: actions/upload-artifact@v6
-        if: startsWith(matrix.os, 'windows') && env.is_tag == 'false'
-        with:
-          name: dodoc-${{needs.meta.outputs.dodoc-version}}-windows.exe
-          path: |
-            electron/dist/dodoc-${{needs.meta.outputs.dodoc-version}}-windows.exe
-      - name: (Linux) Upload artifacts
-        uses: actions/upload-artifact@v6
-        if: startsWith(matrix.os, 'ubuntu') && env.is_tag == 'false'
-        with:
-          name: dodoc-${{needs.meta.outputs.dodoc-version}}-linux.AppImage
-          path: |
-            electron/dist/dodoc-${{needs.meta.outputs.dodoc-version}}-linux.AppImage

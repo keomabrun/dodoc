@@ -77,7 +77,7 @@ mac:
   gatekeeperAssess: false
   entitlements: entitlements.mac.plist
   entitlementsInherit: entitlements.mac.plist
-  provisioningProfile: dodoc.provisionprofile
+  #provisioningProfile: dodoc.provisionprofile
   extendInfo:
     NSMicrophoneUsageDescription: Merci d'accorder l'accès au micro pour réaliser des enregistrements.
     NSCameraUsageDescription: Merci d'accorder l'accès à la caméra pour réaliser des enregistrements.
@@ -86,8 +86,16 @@ mac:
     com.apple.security.device.camera: true
 
 linux:
-  artifactName: dodoc-${version}-linux.${ext}
-  target: AppImage
+  artifactName: dodoc-${version}-linux-{arch}.${ext}
+  target:
+    - target: deb
+      arch:
+        - x64
+        - arm64
+    - target: AppImage
+      arch:
+        - x64
+        - arm64
   category: Education
   icon: build/icons
   executableArgs:
