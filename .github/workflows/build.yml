@@ -46,7 +46,7 @@ jobs:
       is_tag: ${{ startsWith(github.ref, 'refs/tags/v') }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, mac-latest]
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v4
