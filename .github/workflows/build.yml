@@ -5,6 +5,11 @@ on:
      #tags:
      #  - 'v*'
    workflow_dispatch:
+     inputs:
+      environment:
+        type: environment
+        default: DEV
+        required: true
 
 
 jobs:
