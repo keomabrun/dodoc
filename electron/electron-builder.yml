@@ -42,7 +42,6 @@ files:
 win:
   artifactName: dodoc-${version}-windows.${ext}
   icon: build/icon.png
-  differentialPackage: false
   target:
     - target: nsis
       arch: [x64]
@@ -53,6 +52,7 @@ nsis:
   uninstallDisplayName: "do•doc ${version}"
   createDesktopShortcut: always
   shortcutName: "do•doc"
+  differentialPackage: false
 
 appx:
   applicationId: "AtelierDesChercheurs.DoDoc"
