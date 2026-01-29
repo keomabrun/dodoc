@@ -42,6 +42,7 @@ files:
 win:
   artifactName: dodoc-${version}-windows.${ext}
   icon: build/icon.png
+  differentialPackage: false
   target:
     - target: nsis
       arch: [x64]
