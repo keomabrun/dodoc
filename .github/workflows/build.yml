@@ -46,7 +46,6 @@ jobs:
   electron:
     runs-on: ${{ matrix.os }}
     needs : meta
-    env:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
