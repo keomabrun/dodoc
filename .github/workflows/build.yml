@@ -58,14 +58,15 @@ jobs:
         with:
           node-version: 22
 
-      - name: Import Apple code signing certificate
-        if: matrix.platform == 'mac'
-        uses: apple-actions/import-codesign-certs@v3
-        with:
-          p12-file-base64: ${{ secrets.secrets.CSC_LINK }}
-          p12-password: ${{ secrets.secrets.CSC_KEY_PASSWORD }}
+#      - name: Import Apple code signing certificate
+#        if: matrix.platform == 'mac'
+#        uses: apple-actions/import-codesign-certs@v3
+#        with:
+#          p12-file-base64: ${{ secrets.secrets.CSC_LINK }}
+#          p12-password: ${{ secrets.secrets.CSC_KEY_PASSWORD }}
 
       - name: Package Electron app
+        timeout-minutes: 60
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           #CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
