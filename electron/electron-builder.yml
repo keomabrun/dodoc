@@ -78,6 +78,7 @@ mac:
   gatekeeperAssess: false
   entitlements: build/entitlements.mac.plist
   entitlementsInherit: build/entitlements.mac.plist
+  notarize: false
   #provisioningProfile: dodoc.provisionprofile
   extendInfo:
     NSMicrophoneUsageDescription: Merci d'accorder l'accès au micro pour réaliser des enregistrements.
