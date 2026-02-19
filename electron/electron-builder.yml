@@ -1,4 +1,4 @@
-appId: "dodoc"
+appId: "fr.l-atelier-des-chercheurs.dodoc"
 productName: "do•doc"
 
 electronVersion: "39.5.2"
@@ -41,6 +41,7 @@ files:
 
 dmg:
   writeUpdateInfo: false
+  sign: true
 
 win:
   artifactName: dodoc-${version}-windows.${ext}
@@ -76,6 +77,8 @@ appx:
 
 mac:
   artifactName: dodoc-${version}-macos.${ext}
+  target:
+    - target: dmg
   category: public.app-category.education
   icon: build/icon.icns
   hardenedRuntime: true
@@ -118,3 +121,5 @@ linux:
 appImage:
   synopsis: A documentation tool for creativity.
   category: Education
+
+afterSign: notarize.js
