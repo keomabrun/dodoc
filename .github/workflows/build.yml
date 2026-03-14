@@ -83,4 +83,4 @@ jobs:
           codesign -dv electron/dist/mac-arm64/do•doc.app
           codesign -dv electron/dist/dodoc-13.0.10-macos.dmg
           echo "🔍 verify notarisation"
-          spctl -a -vvv -t open -vvv --context context:primary-signature electron/dist/dodoc-13.0.10-macos.dmg
+          spctl -a -vvv -t open -vvv --context context:primary-signature electron/dist/mac-arm64/do•doc.app
