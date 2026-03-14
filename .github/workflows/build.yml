@@ -82,5 +82,5 @@ jobs:
           echo "🔍 verify code signature"
           codesign -dv electron/dist/mac-arm64/do•doc.app
           codesign -dv electron/dist/dodoc-13.0.10-macos.dmg
-          #spctl -a -vvv -t install electron/dist/dodoc-13.0.10-macos.dmg
-        if: matrix.os == 'macos-latest'
+
+          spctl -a -vvv -t install electron/dist/dodoc-13.0.10-macos.dmg

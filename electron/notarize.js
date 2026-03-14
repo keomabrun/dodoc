@@ -18,7 +18,7 @@ exports.default = async function notarizing(context) {
   // in your electron builder configuration
   const bundleId = "fr.l-atelier-des-chercheurs.dodoc";
 
-  let appPath = `dist/mac-arm64/do•doc.app`;
+  let appPath = `dist/dodoc-13.0.10-macos.dmg`;
   let { APPLE_ID, APPLE_APP_SPECIFIC_PASSWORD, APPLE_TEAM_ID } = process.env;
   console.log(`  • Notarizing ${appPath}`);
 
